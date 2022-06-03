@@ -5,7 +5,9 @@ const cors = require("cors");
 const authenticationRouter = require("./routes/authentication");
 const SignupRouter = require("./routes/signup");
 const BookingRouter = require("./routes/booking");
-const router = require("./routes/destination");
+const DestinationRouter = require("./routes/destination");
+const DeleteBookingRouter = require("./routes/DeleteBooking");
+
 dotenv.config();
 
 const app = express();
@@ -21,7 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(BookingRouter);
 app.use(authenticationRouter);
 app.use(SignupRouter);
-app.use(router);
+app.use(DestinationRouter);
+app.use(DeleteBookingRouter);
 
 app.listen(process.env.API_PORT, (error) => {
   if (error) {
